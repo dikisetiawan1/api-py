@@ -7,6 +7,10 @@ app = Flask(__name__)
 def read_excel():
     df = pd.read_excel('data.xlsx')  # Bisa tambahkan sheet_name jika perlu
     return df.to_dict(orient='records')  # Mengembalikan data sebagai list of dicts
+@app.route('/')
+def home():
+    return 'API is running!'
+
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
